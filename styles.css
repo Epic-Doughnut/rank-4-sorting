@@ -1,0 +1,111 @@
+body {
+    background-color: #2b2b2b;
+    /* Dark background color */
+    color: #ffffff;
+    /* Light text color */
+    font-family: Arial, sans-serif;
+}
+
+#master {
+    width: 99vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    /* max-width: 800px; */
+
+    margin: auto;
+    padding: 20px;
+    background-color: #333333;
+    /* Dark container background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #ffcc00;
+    /* Header text color */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #444444;
+    /* Dark textarea background color */
+    color: #ffffff;
+    /* Light textarea text color */
+    border: 1px solid #666666;
+    /* Border color */
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ffcc00;
+    /* Button background color */
+    color: #2b2b2b;
+    /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffd633;
+    /* Hover state background color */
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 400px;
+    padding: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    /* justify-self: right; */
+    /* position: fixed; */
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* RANKINGS */
+
+.ranking-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.sortable-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    width: 200px;
+}
+
+.sortable-list li {
+    background-color: #444444;
+    color: #ffffff;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: grab;
+}
+
+.sortable-list li:hover {
+    background-color: #555555;
+}
+
+.sortable-list li:active {
+    cursor: grabbing;
+}

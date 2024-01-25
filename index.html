@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Input and Console Print</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="master">
+
+        <div class="container" , id="mainContainer">
+            <h1>Rank 4 Sorting</h1>
+
+            <label for="itemInput">Enter items (one per line): </label>
+            <textarea id="itemInput" rows="20" placeholder='Red
+Blue
+Green
+Yellow'></textarea>
+            <button onclick="printList()">Submit List</button>
+            <button onclick="startRanking()">Start Ranking</button>
+
+            <button onclick="copyToClipboard()">Copy Ranking to Clipboard</button>
+            <button onclick="clearList()" style="background-color: rgb(206, 54, 54);">Clear List</button>
+        </div>
+
+        <div class="ranking-container" id="rankingContainer" style="display: none;">
+            <h2>Rank the following:</h2>
+            <h3>Best</h3>
+            <ul id="rankingList" class="sortable-list"></ul>
+            <h3>Worst</h3>
+            <button onclick="submitRanking()">Submit Ranking</button>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar content will be dynamically updated -->
+        </div>
+
+    </div>
+
+
+    <!-- Sortable.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <!-- main script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
