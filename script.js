@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedItemList = localStorage.getItem('itemList');
     if (storedItemList) {
         const parsedItemList = JSON.parse(storedItemList);
+        itemList = parsedItemList;
         updateSidebar(parsedItemList);
     }
 });
