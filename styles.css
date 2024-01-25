@@ -77,6 +77,20 @@ button:hover {
     overflow-y: auto;
 }
 
+/* Add styles for the Remove button */
+.sidebar button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+    /* Adjust the font size as needed */
+}
+
+.sidebar button:hover {
+    text-decoration: underline;
+}
+
 /* RANKINGS */
 
 .ranking-container {

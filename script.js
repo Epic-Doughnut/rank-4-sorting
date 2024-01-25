@@ -26,8 +26,32 @@ function updateSidebar(itemList) {
     itemList.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.textContent = `[${item.elo.toFixed(0)}] ${item.name}`;
+
+        // Create a Remove button (red X)
+        const removeButton = document.createElement('button');
+        removeButton.innerHTML = '&times;'; // HTML entity for the multiplication sign (X)
+        removeButton.className = 'remove-button'; // Add a class for styling
+
+        // Attach the removeItem function to the click event
+        removeButton.addEventListener('click', () => removeItem(item.name));
+
+        // Append the remove button to the itemDiv
+        itemDiv.prepend(removeButton);
+
+        // Append the itemDiv to the sidebarElement
         sidebarElement.appendChild(itemDiv);
     });
+}
+
+function removeItem(itemName) {
+    // Remove the item from the itemList
+    itemList = itemList.filter(item => item.name !== itemName);
+
+    // Update the localStorage with the updated itemList
+    localStorage.setItem('itemList', JSON.stringify(itemList));
+
+    // Update the sidebar to reflect the changes
+    updateSidebar(itemList);
 }
 
 // Load the initial sidebar content when the page loads
