@@ -85,7 +85,7 @@ function startRanking() {
 
     // Get four random items from the itemList for ranking
     itemList = JSON.parse(localStorage.getItem('itemList'));
-    const itemsForRanking = getRandomItems(itemList, 4);
+    const itemsForRanking = getSimilarEloItems(itemList, 4);
 
     // Display the items in the ranking list
     itemsForRanking.forEach(item => {
@@ -123,6 +123,31 @@ function getRankingOrder() {
 function getRandomItems(array, count) {
     // Function to get a random subset of items from the array
     const shuffledArray = array.slice().sort(() => Math.random() - 0.5);
+    return shuffledArray.slice(0, count);
+}
+
+function getSimilarEloItems(array, count) {
+    // Function to get items with elo values within an expanding elo range
+    const randomIndex = Math.floor(Math.random() * array.length);
+    const initialTargetElo = array[randomIndex].elo;
+    
+    let eloRange = 10; // Starting elo range
+    let eloFilteredArray = [];
+
+    // Expand elo range until we have enough items
+    while (eloFilteredArray.length < count && eloRange <= 300) {
+        eloFilteredArray = array.filter(item => item.elo >= initialTargetElo - eloRange && item.elo <= initialTargetElo + eloRange);
+        eloRange += 10;
+    }
+
+    // If there are not enough items within the expanded elo range, simply get random items
+    if (eloFilteredArray.length < count) {
+        console.log("Not enough items within the specified elo range.");
+        return getRandomItems(array, count);
+    }
+
+    // Shuffle the elo-filtered array and return the specified count
+    const shuffledArray = eloFilteredArray.slice().sort(() => Math.random() - 0.5);
     return shuffledArray.slice(0, count);
 }
 
